@@ -32,6 +32,7 @@ public class Terminal {
      * (i.e.: underlined, dim, bright) to the terminal defaults.
      */
     public void resetStyle() {
+        command(CONTROL_CODE + "0" + STYLE);
     }
 
     /**
@@ -63,6 +64,34 @@ public class Terminal {
      * @param color The color to set.
      */
     public void setColor(Color color) {
+        String colorNumber = new String("");
+        switch(color) {
+            case BLACK:
+                colorNumber = "30";
+                break;
+            case RED:
+                colorNumber = "31";
+                break;
+            case GREEN:
+                colorNumber = "32";
+                break;    
+            case YELLOW:
+                colorNumber = "33";
+                break;    
+            case BLUE:
+                colorNumber = "34";
+                break;    
+            case MAGENTA:
+                colorNumber = "35";
+                break;    
+            case CYAN:
+                colorNumber = "36";
+                break;   
+            case WHITE:
+                colorNumber = "37";
+                break;    
+        }
+        command(CONTROL_CODE + colorNumber + STYLE);
     }
 
     /**
