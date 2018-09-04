@@ -40,6 +40,7 @@ public class Terminal {
      * Might reset cursor position.
      */
     public void clearScreen() {
+        command(CLEAR);
     }
 
     /**
@@ -53,7 +54,7 @@ public class Terminal {
      */
     public void moveTo(Integer x, Integer y) {
     }
-
+    
     /**
      * Set the foreground printing color.
      *
@@ -118,5 +119,6 @@ public class Terminal {
      * @param commandString The unique part of a command sequence.
      */
     private void command(String commandString) {
+        System.out.println(CONTROL_CODE + commandString);
     }
 }
